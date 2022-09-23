@@ -32,3 +32,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Tasks
+- [ ] Choose the upscaler
+- [ ] Choose a text prompt API (e.g. music lyrics, quotes)
+- [ ] Choose where to host images
+- [ ] Generate demo image using Stable Diffusion to test upscalers with
+- [ ] Create an API endpoint that takes a text prompt, calls Stable Diffusion API, and download image
+- [ ] Create an API endpoint that takes an image URL, upscales it, stores it, and then returns the url
+- [ ] Create an API endpoint that calls the text prompt API, stores the text, and then starts the AI generator/upscaler workflow
+- [ ] Create an API endpoint to serve image src
+- [ ] Function to host downloaded images on some hosting site
+- [ ] Create the front-end website to show text & AI image
+- [ ] Research effective seed words to optimize AI images
+- [ ] Research NLP / semantic analysis of text to enrich the text prompt
+
