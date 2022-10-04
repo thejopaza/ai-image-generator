@@ -5,7 +5,7 @@ export default function Stability() {
   const [imgSrc, setImgSrc] = useState("");
 
   const handleClick = async () => {
-    const response = await fetch("api/stability/client");
+    const response = await fetch("api/stability");
     const data = await response.json();
     setImgSrc(data.imageBinary);
   };
