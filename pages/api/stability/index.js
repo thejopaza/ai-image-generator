@@ -25,6 +25,8 @@ const combCreds = grpc.credentials.combineChannelCredentials(
   callCreds
 );
 
+console.log({ channelCreds, callCreds, combCreds });
+
 export default async function handler(req, res) {
   const { method, body } = req;
   const { prompt } = body;
