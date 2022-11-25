@@ -5,9 +5,10 @@ const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
 
 const currentDir = process.cwd();
-const packageDefinition = protoLoader.loadSync(
-  `${currentDir}/proto/generation.proto`
-);
+const PROTO_PATH = "generation.proto";
+const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
+  includeDirs: ["proto"],
+});
 const { gooseai } = grpc.loadPackageDefinition(packageDefinition);
 
 // https://grpc.io/docs/guides/auth/
