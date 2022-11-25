@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import "./generation.proto"
 
 // https://www.npmjs.com/package/@grpc/proto-loader
 const protoLoader = require("@grpc/proto-loader");
@@ -7,7 +8,7 @@ const grpc = require("@grpc/grpc-js");
 const currentDir = process.cwd();
 const PROTO_PATH = "generation.proto";
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-  includeDirs: ["proto"],
+  includeDirs: ["proto","."],
 });
 const { gooseai } = grpc.loadPackageDefinition(packageDefinition);
 
