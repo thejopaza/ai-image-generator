@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  serverRuntimeConfig: {
-    PROJECT_ROOT: __dirname,
-  },
+  target: "serverless",
+  experimental: { nftTracing: true },
 };
 
 module.exports = nextConfig

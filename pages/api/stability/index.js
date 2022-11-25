@@ -1,14 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-import fs from "fs";
-import path from "path";
-import getConfig from "next/config";
-const { serverRuntimeConfig } = getConfig();
+const { resolve } = require("path");
 
 // https://www.npmjs.com/package/@grpc/proto-loader
 const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
 
-const PROTO_PATH = path.join(serverRuntimeConfig.PROJECT_ROOT, './proto/generation.proto');
+const PROTO_PATH = resolve('./proto/generation.proto');
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   includeDirs: ["proto","."],
 });
