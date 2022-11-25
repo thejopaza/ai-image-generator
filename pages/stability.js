@@ -13,7 +13,7 @@ export default function Stability() {
         },
         body: JSON.stringify({
           prompt:
-            "Messi doing a bicycle kick in football to score a goal. Colorful, illustration, insanely detailed, intricate, 8k, dramatic lighting, beautiful, epic composition, octane render",
+            "Happy & smiling rabbit meets its soulmate. Colorful, illustration, insanely detailed, intricate, 8k, dramatic lighting, beautiful, epic composition, octane render",
         }),
       });
       const { data } = await response.json();

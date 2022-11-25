@@ -5,9 +5,9 @@ const { resolve } = require("path");
 const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
 
-const PROTO_PATH = resolve('./proto/generation.proto');
+const PROTO_PATH = resolve("./proto/generation.proto");
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-  includeDirs: ["proto","."],
+  includeDirs: ["proto", "."],
 });
 const { gooseai } = grpc.loadPackageDefinition(packageDefinition);
 
@@ -24,8 +24,6 @@ const combCreds = grpc.credentials.combineChannelCredentials(
   channelCreds,
   callCreds
 );
-
-console.log({ channelCreds, callCreds, combCreds });
 
 export default async function handler(req, res) {
   const { method, body } = req;
@@ -81,7 +79,7 @@ async function generateImageFromPrompt(prompt) {
       height: 640,
       width: 512,
       seed: 0,
-      steps: 50,
+      steps: 5,
       samples: 1,
     },
   };
