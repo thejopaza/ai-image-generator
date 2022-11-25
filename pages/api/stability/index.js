@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import "./generation.proto"
 
 // https://www.npmjs.com/package/@grpc/proto-loader
 const protoLoader = require("@grpc/proto-loader");
