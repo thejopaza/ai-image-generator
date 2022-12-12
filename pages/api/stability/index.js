@@ -37,12 +37,12 @@ export default async function handler(req, res) {
           message: "Prompt is empty or too short.",
         });
       }
-      const imageBinary = await generateImageFromPrompt(prompt);
+      const imageData = await generateImageFromPrompt(prompt);
 
       return res.status(200).json({
         status: "success",
         data: {
-          imageBinary,
+          ...imageData,
         },
       });
     } catch (error) {
@@ -66,9 +66,11 @@ async function generateImageFromPrompt(prompt) {
     combCreds
   );
 
+  const seed = seed | Math.floor(Math.random() * 2147483647);
+
   const requestId = uuidv4();
   const request = {
-    engineId: "stable-diffusion-v1-5",
+    engineId: "stable-diffusion-512-v2-0",
     requestId,
     prompt: [
       {
@@ -78,8 +80,8 @@ async function generateImageFromPrompt(prompt) {
     image: {
       height: 640,
       width: 512,
-      seed: 0,
-      steps: 5,
+      seed: [seed],
+      steps: 10,
       samples: 1,
     },
   };
@@ -93,7 +95,7 @@ async function generateImageFromPrompt(prompt) {
             const imageBinary = `data:image/png;base64,${artifact.binary.toString(
               "base64"
             )}`;
-            myResolve(imageBinary);
+            myResolve({ imageBinary, seed });
           }
         }
         myReject({ message: "No image generated" });
